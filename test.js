@@ -1,6 +1,14 @@
 // このファイルはテスト用のファイルです
 function main() {
     console.log('test');
+    // Express server on port 3000
+var express = require('express');
+var app = express();
+app.get('/', function(req, res) {
+  res.send('Hello World');
+});
+app.listen(3000);
+
 }
 
 // fizzbuzz.js
@@ -17,6 +25,7 @@ function fizzbuzz() {
      console.log(i);
    }
  } 
+}
 
 // うるうどしを計算する関数
 function isLeapYear(year) {
@@ -61,3 +70,23 @@ function fizzBuzz(startYear, endYear) {
     }
   } 
 }
+
+function calculateDayBetweenDates(begin, end){
+  var beginDate = new Date(begin);
+  var endDate = new Date(end);
+  var diff = endDate.getTime() - beginDate.getTime();
+  var diffDays = diff / (1000 * 3600 * 24);
+  return diffDays;
+}
+
+// うるう年を計算する関数
+function isLeapYear(year) {
+  if (year % 4 === 0 && year % 100 !== 0) {
+    return true;
+  } else if (year % 400 === 0) {
+    return true;
+  } else {
+    return false;
+  } 
+}
+
